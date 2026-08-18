@@ -14,21 +14,20 @@
     </style>
 </head>
 <body class="bg-[#FDF3EC] text-gray-800">
-    
+
     <!-- NAVBAR -->
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-amber-100">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="flex items-center gap-2">
-                <img src="http://127.0.0.1:8000/images/rasa_nusantara_logo.png" alt="Rasa Nusantara" class="w-9 h-9 object-contain">
+                <img src="./images/rasa_nusantara_logo.png" alt="Rasa Nusantara" class="w-9 h-9 object-contain">
                 <span class="font-display text-2xl font-bold text-amber-800 tracking-tight">Rasa Nusantara</span>
             </a>
             <div class="hidden md:flex space-x-8 font-medium text-gray-600">
                 <a href="#hero" class="text-amber-700 border-b-2 border-amber-700 pb-1 transition">Home</a>
                 <a href="#menu" class="hover:text-amber-700 transition">Menu</a>
-                
                 <a href="#contact" class="hover:text-amber-700 transition">Contact</a>
             </div>
-            <a href="https://wa.me/6281234567890?text=Halo+Rasa+Nusantara%2C+saya+ingin+memesan+menu."
+            <a href="https://wa.me/6281234567890?text=Halo%20Rasa%20Nusantara,%20saya%20ingin%20memesan%20menu."
                target="_blank" rel="noopener"
                class="bg-amber-700 hover:bg-amber-800 text-white px-5 py-2.5 rounded-full font-semibold shadow-md transition">
                 Pesan Sekarang
@@ -54,8 +53,7 @@
             </a>
         </div>
         <div class="relative">
-            
-            <img src="http://127.0.0.1:8000/images/1.jpg" alt="Kuliner Nusantara" class="rounded-3xl shadow-2xl w-full object-cover h-[320px] md:h-[400px]">
+            <img src="images/1.jpg" alt="Kuliner Nusantara" class="rounded-3xl shadow-2xl w-full object-cover h-[320px] md:h-[400px]">
         </div>
     </section>
 
@@ -73,7 +71,6 @@
             </div>
             <div class="flex items-center gap-3">
                 <span class="bg-emerald-800 text-white text-sm font-bold px-5 py-2.5 rounded-full">% Diskon 30% Terbatas</span>
-                
                 <span id="promoTimer"
                       class="bg-rose-100 text-rose-700 text-sm font-bold px-5 py-2.5 rounded-full flex items-center gap-1.5"
                       data-duration="15918">
@@ -93,61 +90,65 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                                                        <div class="bg-white rounded-2xl shadow-sm border border-amber-100 overflow-hidden hover:shadow-md transition">
-                        <div class="relative">
-                            
-                            <img src="http://127.0.0.1:8000/images/menu/rendang.jpg" alt="Rendang Daging Sapi" class="w-full h-48 object-cover">
-                                                    </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-2 gap-3">
-                                <h3 class="font-display text-xl font-bold text-gray-900">Rendang Daging Sapi</h3>
-                                <span class="text-amber-700 font-extrabold whitespace-nowrap">Rp 45.000</span>
-                            </div>
-                            <p class="text-gray-600 text-sm mb-4 leading-relaxed line-clamp-2">Daging sapi olahan rempah khas Minang yang dimasak berjam-jam hingga empuk.</p>
-                            <a href="https://wa.me/6281234567890?text=Halo+Rasa+Nusantara%2C+saya+ingin+memesan+%2ARendang+Daging+Sapi%2A+seharga+Rp+45.000."
-                               target="_blank" rel="noopener"
-                               class="block text-center w-full bg-white hover:bg-amber-50 text-emerald-800 font-bold py-2.5 rounded-xl border border-amber-200 transition">
-                                Pesan Sekarang
-                            </a>
-                        </div>
+                <!-- Menu 1: Rendang -->
+                <div class="bg-white rounded-2xl shadow-sm border border-amber-100 overflow-hidden hover:shadow-md transition">
+                    <div class="relative">
+                        <img src="./images/menu/rendang.jpg" alt="Rendang Sapi" class="w-full h-48 object-cover">
+                        <span class="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">Spicy</span>
                     </div>
-                                                        <div class="bg-white rounded-2xl shadow-sm border border-amber-100 overflow-hidden hover:shadow-md transition">
-                        <div class="relative">
-                            
-                            <img src="http://127.0.0.1:8000/images/menu/sate.jpg" alt="Sate Ayam Madura" class="w-full h-48 object-cover">
-                                                    </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-2 gap-3">
-                                <h3 class="font-display text-xl font-bold text-gray-900">Sate Ayam Madura</h3>
-                                <span class="text-amber-700 font-extrabold whitespace-nowrap">Rp 35.000</span>
-                            </div>
-                            <p class="text-gray-600 text-sm mb-4 leading-relaxed line-clamp-2">Daging ayam pilihan dibakar dengan bumbu kacang khas Madura yang gurih.</p>
-                            <a href="https://wa.me/6281234567890?text=Halo+Rasa+Nusantara%2C+saya+ingin+memesan+%2ASate+Ayam+Madura%2A+seharga+Rp+35.000."
-                               target="_blank" rel="noopener"
-                               class="block text-center w-full bg-white hover:bg-amber-50 text-emerald-800 font-bold py-2.5 rounded-xl border border-amber-200 transition">
-                                Pesan Sekarang
-                            </a>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2 gap-3">
+                            <h3 class="font-display text-xl font-bold text-gray-900">Rendang Sapi</h3>
+                            <span class="text-amber-700 font-extrabold whitespace-nowrap">Rp 45.000</span>
                         </div>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed line-clamp-2">Daging sapi empuk yang dimasak dengan santan dan rempah-rempah pilihan khas Minang.</p>
+                        <a href="https://wa.me/6281234567890?text=Halo%20Rasa%20Nusantara,%20saya%20ingin%20memesan%20*Rendang%20Sapi*%20seharga%20Rp%2045.000."
+                           target="_blank" rel="noopener"
+                           class="block text-center w-full bg-white hover:bg-amber-50 text-emerald-800 font-bold py-2.5 rounded-xl border border-amber-200 transition">
+                            Pesan Sekarang
+                        </a>
                     </div>
-                                                        <div class="bg-white rounded-2xl shadow-sm border border-amber-100 overflow-hidden hover:shadow-md transition">
-                        <div class="relative">
-                            
-                            <img src="http://127.0.0.1:8000/images/menu/soto.jfif" alt="Soto Ayam Lamongan" class="w-full h-48 object-cover">
-                                                    </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-2 gap-3">
-                                <h3 class="font-display text-xl font-bold text-gray-900">Soto Ayam Lamongan</h3>
-                                <span class="text-amber-700 font-extrabold whitespace-nowrap">Rp 30.000</span>
-                            </div>
-                            <p class="text-gray-600 text-sm mb-4 leading-relaxed line-clamp-2">Soto ayam kuah kuning segar disajikan dengan koya gurih melimpah.</p>
-                            <a href="https://wa.me/6281234567890?text=Halo+Rasa+Nusantara%2C+saya+ingin+memesan+%2ASoto+Ayam+Lamongan%2A+seharga+Rp+30.000."
-                               target="_blank" rel="noopener"
-                               class="block text-center w-full bg-white hover:bg-amber-50 text-emerald-800 font-bold py-2.5 rounded-xl border border-amber-200 transition">
-                                Pesan Sekarang
-                            </a>
+                </div>
+
+                <!-- Menu 2: Sate Ayam -->
+                <div class="bg-white rounded-2xl shadow-sm border border-amber-100 overflow-hidden hover:shadow-md transition">
+                    <div class="relative">
+                        <img src="./images/menu/sate.jpg" alt="Sate Ayam Madura" class="w-full h-48 object-cover">
+                        <span class="absolute top-3 right-3 bg-amber-900 text-white text-xs font-bold px-3 py-1 rounded-full">Favorit</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2 gap-3">
+                            <h3 class="font-display text-xl font-bold text-gray-900">Sate Ayam Madura</h3>
+                            <span class="text-amber-700 font-extrabold whitespace-nowrap">Rp 35.000</span>
                         </div>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed line-clamp-2">Sate ayam dengan bumbu kacang kental gurih dan taburan bawang goreng renyah.</p>
+                        <a href="https://wa.me/6281234567890?text=Halo%20Rasa%20Nusantara,%20saya%20ingin%20memesan%20*Sate%20Ayam%20Madura*%20seharga%20Rp%2035.000."
+                           target="_blank" rel="noopener"
+                           class="block text-center w-full bg-white hover:bg-amber-50 text-emerald-800 font-bold py-2.5 rounded-xl border border-amber-200 transition">
+                            Pesan Sekarang
+                        </a>
                     </div>
-                            </div>
+                </div>
+
+                <!-- Menu 3: Soto Betawi -->
+                <div class="bg-white rounded-2xl shadow-sm border border-amber-100 overflow-hidden hover:shadow-md transition">
+                    <div class="relative">
+                        <img src="./images/menu/soto.jfif" alt="Soto Betawi" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2 gap-3">
+                            <h3 class="font-display text-xl font-bold text-gray-900">Soto Betawi</h3>
+                            <span class="text-amber-700 font-extrabold whitespace-nowrap">Rp 40.000</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed line-clamp-2">Soto kuah santan dan susu yang gurih kaya rempah lengkap dengan potongan daging sapi empuk.</p>
+                        <a href="https://wa.me/6281234567890?text=Halo%20Rasa%20Nusantara,%20saya%20ingin%20memesan%20*Soto%20Betawi*%20seharga%20Rp%2040.000."
+                           target="_blank" rel="noopener"
+                           class="block text-center w-full bg-white hover:bg-amber-50 text-emerald-800 font-bold py-2.5 rounded-xl border border-amber-200 transition">
+                            Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -156,14 +157,12 @@
         <div class="max-w-7xl mx-auto px-6 pb-12 grid md:grid-cols-4 gap-10">
             <div>
                 <div class="flex items-center gap-2 mb-3">
-                    <img src="http://127.0.0.1:8000/images/rasa_nusantara_logo.png" alt="Rasa Nusantara" class="w-8 h-8 object-contain">
+                    <img src="images/rasa_nusantara_logo.png" alt="Rasa Nusantara" class="w-8 h-8 object-contain">
                     <p class="font-display text-2xl font-bold text-amber-700">Rasa Nusantara</p>
                 </div>
                 <p class="text-sm text-gray-700 leading-relaxed max-w-xs">Menyajikan keaslian rasa nusantara dalam suasana hangat dan modern.</p>
             </div>
-            <div>
-                
-            </div>
+            <div></div>
             <div>
                 <p class="text-xs font-bold tracking-widest text-gray-800 uppercase mb-4">Jam Buka</p>
                 <ul class="space-y-2 text-sm text-gray-700">
@@ -199,11 +198,8 @@
             const STORAGE_KEY = 'promoTimerEndTime';
 
             if (targetTimeAttr) {
-                // Mode 1: berakhir di waktu tetap (timestamp ms dari server)
                 endTime = parseInt(targetTimeAttr, 10);
             } else {
-                // Mode 2: hitung mundur berdurasi tetap, tersimpan di browser
-                // supaya kalau halaman di-refresh, timer tidak reset ke awal.
                 const savedEndTime = localStorage.getItem(STORAGE_KEY);
                 const now = Date.now();
 
@@ -231,7 +227,6 @@
                 if (remaining <= 0) {
                     render(0, 0, 0);
                     clearInterval(intervalId);
-                    // Promo habis: sembunyikan bar promo atau tampilkan pesan lain
                     const badge = timerEl.closest('section')?.querySelector('.bg-emerald-800');
                     if (badge) {
                         badge.outerHTML = '<span class="text-gray-500 text-sm font-bold px-5 py-2.5">Promo telah berakhir</span>';
@@ -249,11 +244,9 @@
             const intervalId = setInterval(tick, 1000);
         })();
 
-        // Render semua icon Lucide di halaman
         if (window.lucide) {
             lucide.createIcons();
         }
     </script>
-
 </body>
 </html>
