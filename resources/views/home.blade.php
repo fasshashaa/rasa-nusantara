@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rasa Nusantara - Cita Rasa Autentik Kuliner Indonesia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-display { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="bg-[#FDF3EC] text-gray-800">
+    @php
+        $waNumber = $waNumber ?? '6281234567890';
+        $waPesanUmum = 'Halo Rasa Nusantara, saya ingin memesan menu.';
+    @endphp
+
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-amber-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2">
+                <img src="{{ asset('images/rasa_nusantara_logo.png') }}" alt="Rasa Nusantara" class="w-9 h-9 object-contain">
+                <span class="font-display text-2xl font-bold text-amber-800 tracking-tight">Rasa Nusantara</span>
+            </a>
+            <div class="hidden md:flex space-x-8 font-medium text-gray-600">
+                <a href="#hero" class="text-amber-700 border-b-2 border-amber-700 pb-1 transition">Home</a>
+                <a href="#menu" class="hover:text-amber-700 transition">Menu</a>
+                {{-- <a href="#promo" class="hover:text-amber-700 transition">Promo</a>
+                <a href="#gallery" class="hover:text-amber-700 transition">Gallery</a> --}}
+                <a href="#contact" class="hover:text-amber-700 transition">Contact</a>
+            </div>
+            <a href="https://wa.me/{{ $waNumber }}?text={{ urlencode($waPesanUmum) }}"
+               target="_blank" rel="noopener"
+               class="bg-amber-700 hover:bg-amber-800 text-white px-5 py-2.5 rounded-full font-semibold shadow-md transition">
+                Pesan Sekarang
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="max-w-7xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+        <div>
+            <span class="inline-flex items-center gap-2 text-emerald-800 text-xs font-bold tracking-widest uppercase mb-5">
+                <span class="w-6 h-px bg-emerald-800"></span> Authentic Taste
+            </span>
+            <h1 class="font-display text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+                Nikmati Kelezatan Asli
+                <span class="block italic text-amber-700">Nusantara</span>
+            </h1>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed max-w-md">
+                Diskon 20% untuk Menu Pilihan Bulan Ini. Cita rasa otentik bumbu warisan leluhur, disajikan dengan sentuhan modern.
+            </p>
+            <a href="#menu" class="inline-flex items-center gap-2 bg-amber-700 hover:bg-amber-800 text-white px-6 py-3.5 rounded-xl font-bold shadow-lg transition">
+                Lihat Menu &amp; Promo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+        </div>
+        <div class="relative">
+            {{-- Gambar hero diambil dari folder public/images, taruh file hero.jpg di sana --}}
+            <img src="{{ asset('images/1.jpg') }}" alt="Kuliner Nusantara" class="rounded-3xl shadow-2xl w-full object-cover h-[320px] md:h-[400px]">
+        </div>
+    </section>
+
+    <!-- PROMO BAR -->
+    <section id="promo" class="max-w-7xl mx-auto px-6 pb-12">
+        <div class="bg-white rounded-2xl shadow-sm border border-amber-100 px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-4">
+                <span class="w-12 h-12 rounded-full bg-amber-50 border border-amber-100 flex items-center justify-center">
+                    <i data-lucide="tag" class="w-5 h-5 text-amber-700"></i>
+                </span>
+                <div>
+                    <p class="font-bold text-gray-900">Promo Spesial Hari Ini</p>
+                    <p class="text-sm text-gray-500">Nikmati hidangan spesial dengan harga terbaik</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="bg-emerald-800 text-white text-sm font-bold px-5 py-2.5 rounded-full">% Diskon 30% Terbatas</span>
+                {{--
+                    Timer promo:
+                    - data-duration = total detik hitung mundur dari saat halaman dibuka (4 jam 25 menit 18 detik = 15918 detik)
+                    - Kalau mau timer berakhir di jam TETAP setiap hari (misal jam 23:59), ganti pakai data-target-time
+                      dengan value timestamp dari server, contoh:
+                      data-target-time="{{ now()->endOfDay()->timestamp * 1000 }}"
+                --}}
+                <span id="promoTimer"
+                      class="bg-rose-100 text-rose-700 text-sm font-bold px-5 py-2.5 rounded-full flex items-center gap-1.5"
+                      data-duration="15918">
+                    <i data-lucide="timer" class="w-4 h-4"></i>
+                    <span id="promoTimerText">04&nbsp;:&nbsp;25&nbsp;:&nbsp;18</span>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU FAVORIT -->
+    <section id="menu" class="bg-[#FBE8DE]/60 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <p class="text-emerald-800 text-xs font-bold tracking-widest uppercase mb-2">Menu Andalan</p>
+                <h2 class="font-display text-3xl font-bold text-gray-900">Cita Rasa Pilihan</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                @forelse($menuFavorit as $item)
+                    @php
+                        $pesanTeks = "Halo Rasa Nusantara, saya ingin memesan *{$item->nama}* seharga Rp " . number_format($item->harga, 0, ',', '.') . ".";
+                    @endphp
+                    <div class="bg-white rounded-2xl shadow-sm border border-amber-100 overflow-hidden hover:shadow-md transition">
+                        <div class="relative">
+                            {{--
+                                Gambar menu dari lokal (public/images/menu), sama seperti logo.
+                                Di database cukup simpan nama filenya saja, misal: "rendang.jpg"
+                            --}}
+                            <img src="{{ asset('images/menu/' . $item->gambar) }}" alt="{{ $item->nama }}" class="w-full h-48 object-cover">
+                            @if($item->badge ?? false)
+                                <span @class([
+                                    'absolute top-3 right-3 text-white text-xs font-bold px-3 py-1 rounded-full',
+                                    'bg-amber-900' => ($item->badge_color ?? 'default') === 'default',
+                                    'bg-red-600' => ($item->badge_color ?? '') === 'spicy',
+                                    'bg-emerald-700' => ($item->badge_color ?? '') === 'vegetarian',
+                                ])>{{ $item->badge }}</span>
+                            @endif
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2 gap-3">
+                                <h3 class="font-display text-xl font-bold text-gray-900">{{ $item->nama }}</h3>
+                                <span class="text-amber-700 font-extrabold whitespace-nowrap">Rp {{ number_format($item->harga, 0, ',', '.') }}</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4 leading-relaxed line-clamp-2">{{ $item->deskripsi }}</p>
+                            <a href="https://wa.me/{{ $waNumber }}?text={{ urlencode($pesanTeks) }}"
+                               target="_blank" rel="noopener"
+                               class="block text-center w-full bg-white hover:bg-amber-50 text-emerald-800 font-bold py-2.5 rounded-xl border border-amber-200 transition">
+                                Pesan Sekarang
+                            </a>
+                        </div>
+                    </div>
+                @empty
+                    <div class="col-span-3 text-center py-8 text-gray-500">Belum ada data menu favorit.</div>
+                @endforelse
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="bg-[#F6C9BC] pt-16">
+        <div class="max-w-7xl mx-auto px-6 pb-12 grid md:grid-cols-4 gap-10">
+            <div>
+                <div class="flex items-center gap-2 mb-3">
+                    <img src="{{ asset('images/rasa_nusantara_logo.png') }}" alt="Rasa Nusantara" class="w-8 h-8 object-contain">
+                    <p class="font-display text-2xl font-bold text-amber-700">Rasa Nusantara</p>
+                </div>
+                <p class="text-sm text-gray-700 leading-relaxed max-w-xs">Menyajikan keaslian rasa nusantara dalam suasana hangat dan modern.</p>
+            </div>
+            <div>
+                {{-- <p class="text-xs font-bold tracking-widest text-gray-800 uppercase mb-4">Links</p>
+                <ul class="space-y-2 text-sm text-gray-700">
+                    <li><a href="#hero" class="hover:text-amber-800">Hours</a></li>
+                    <li><a href="#contact" class="hover:text-amber-800">Address</a></li>
+                    <li><a href="#contact" class="hover:text-amber-800">Contact</a></li>
+                    <li><a href="#" class="hover:text-amber-800">Social</a></li>
+                </ul> --}}
+            </div>
+            <div>
+                <p class="text-xs font-bold tracking-widest text-gray-800 uppercase mb-4">Jam Buka</p>
+                <ul class="space-y-2 text-sm text-gray-700">
+                    <li>Senin - Jumat: 10.00 - 22.00</li>
+                    <li>Sabtu - Minggu: 08.00 - 23.00</li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-xs font-bold tracking-widest text-gray-800 uppercase mb-4">Kontak</p>
+                <ul class="space-y-2 text-sm text-gray-700">
+                    <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 shrink-0"></i> Jl. Senopati, Jakarta</li>
+                    <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 shrink-0"></i> (021) 1234-5678</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-black/10">
+            <div class="max-w-7xl mx-auto px-6 py-6 text-center text-xs text-gray-700">
+                &copy; {{ date('Y') }} Rasa Nusantara. Authentic Indonesian Taste.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            const timerEl = document.getElementById('promoTimer');
+            const textEl = document.getElementById('promoTimerText');
+            if (!timerEl || !textEl) return;
+
+            const targetTimeAttr = timerEl.getAttribute('data-target-time');
+            const durationAttr = timerEl.getAttribute('data-duration');
+
+            let endTime;
+            const STORAGE_KEY = 'promoTimerEndTime';
+
+            if (targetTimeAttr) {
+                // Mode 1: berakhir di waktu tetap (timestamp ms dari server)
+                endTime = parseInt(targetTimeAttr, 10);
+            } else {
+                // Mode 2: hitung mundur berdurasi tetap, tersimpan di browser
+                // supaya kalau halaman di-refresh, timer tidak reset ke awal.
+                const savedEndTime = localStorage.getItem(STORAGE_KEY);
+                const now = Date.now();
+
+                if (savedEndTime && parseInt(savedEndTime, 10) > now) {
+                    endTime = parseInt(savedEndTime, 10);
+                } else {
+                    const durationSeconds = parseInt(durationAttr, 10) || 0;
+                    endTime = now + durationSeconds * 1000;
+                    localStorage.setItem(STORAGE_KEY, String(endTime));
+                }
+            }
+
+            function pad(num) {
+                return String(num).padStart(2, '0');
+            }
+
+            function render(hh, mm, ss) {
+                textEl.innerHTML = pad(hh) + '&nbsp;:&nbsp;' + pad(mm) + '&nbsp;:&nbsp;' + pad(ss);
+            }
+
+            function tick() {
+                const now = Date.now();
+                let remaining = Math.floor((endTime - now) / 1000);
+
+                if (remaining <= 0) {
+                    render(0, 0, 0);
+                    clearInterval(intervalId);
+                    // Promo habis: sembunyikan bar promo atau tampilkan pesan lain
+                    const badge = timerEl.closest('section')?.querySelector('.bg-emerald-800');
+                    if (badge) {
+                        badge.outerHTML = '<span class="text-gray-500 text-sm font-bold px-5 py-2.5">Promo telah berakhir</span>';
+                    }
+                    return;
+                }
+
+                const hh = Math.floor(remaining / 3600);
+                const mm = Math.floor((remaining % 3600) / 60);
+                const ss = remaining % 60;
+                render(hh, mm, ss);
+            }
+
+            tick();
+            const intervalId = setInterval(tick, 1000);
+        })();
+
+        // Render semua icon Lucide di halaman
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+    </script>
+
+</body>
+</html>
